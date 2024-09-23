@@ -17,8 +17,8 @@
     }
   </figure>
   <div class="card-body">
-    <h2 class="card-title">{{ faceSnap.title }}</h2>
-    <p>Mis en ligne le {{ faceSnap.createdAt.toLocaleDateString() }}</p>
+    <h2 class="card-title">{{ faceSnap.title | uppercase }}</h2>
+    <p>Mis en ligne le {{ faceSnap.createdAt | date : "longDate" }}</p>
     <p>{{ faceSnap.description }}</p>
     <div class="card-actions justify-end">
       <button
