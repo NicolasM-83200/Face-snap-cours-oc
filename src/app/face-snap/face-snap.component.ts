@@ -1,11 +1,17 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FaceSnap } from '../models/face-snap';
-import { DatePipe, NgClass, UpperCasePipe } from '@angular/common';
+import {
+  CurrencyPipe,
+  DatePipe,
+  NgClass,
+  PercentPipe,
+  UpperCasePipe,
+} from '@angular/common';
 
 @Component({
   selector: 'app-face-snap',
   standalone: true,
-  imports: [NgClass, UpperCasePipe, DatePipe],
+  imports: [NgClass, UpperCasePipe, DatePipe, CurrencyPipe, PercentPipe],
   templateUrl: './face-snap.component.html',
 })
 export class FaceSnapComponent implements OnInit {

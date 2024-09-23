@@ -18,6 +18,8 @@ export class AppComponent implements OnInit {
         'Mon meilleur ami depuis toujours!',
         'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg',
         new Date(),
+        0.477,
+        306.5,
         10
       ),
       new FaceSnap(
@@ -25,6 +27,8 @@ export class AppComponent implements OnInit {
         'Le pire ennemi de mon meilleur ami!',
         'https://boutique.plushtoy.fr/WebRoot/ce_fr/Shops/186372/5F84/B95E/589A/04C6/565D/C0A8/1911/2000/peluche-pieuvre-110-cm-orange_ml.jpg',
         new Date(),
+        0.333,
+        53.99,
         1
       ),
       new FaceSnap(
@@ -32,6 +36,8 @@ export class AppComponent implements OnInit {
         'Un lapin vachement fort!',
         'https://gastonethortense.com/4329-large_default/product.jpg',
         new Date(),
+        0.9999,
+        999.99,
         10
       ),
     ];

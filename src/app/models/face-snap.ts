@@ -6,6 +6,8 @@ export class FaceSnap {
     public description: string,
     public imageUrl: string,
     public createdAt: Date,
+    public ratio: number,
+    public price: number,
     public snaps: number
   ) {}
 
