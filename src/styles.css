@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.snapped {
+  @apply bg-green-200 text-green-600;
+}

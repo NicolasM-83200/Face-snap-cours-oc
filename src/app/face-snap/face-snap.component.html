@@ -1,16 +1,31 @@
-<div class="card bg-base-100 w-96 shadow-xl">
-  <figure>
-    <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title" />
+<div
+  class="card bg-base-100 w-96 shadow-xl"
+  [ngClass]="{ snapped: userHasSnapped }"
+>
+  <figure class="relative pt-4 px-4">
+    <img
+      class="rounded-xl h-72 object-cover"
+      [src]="faceSnap.imageUrl"
+      [alt]="faceSnap.title"
+    />
+    @if(faceSnap.location) {
+    <figcaption
+      class="absolute left-4 bottom-1 text-base-300 px-2 rounded-xl backdrop-blur-sm"
+    >
+      Localisation: {{ faceSnap.location }}
+    </figcaption>
+    }
   </figure>
-  @if(faceSnap.location) {
-  <figcaption>Localisation: {{ faceSnap.location }}</figcaption>
-  }
   <div class="card-body">
     <h2 class="card-title">{{ faceSnap.title }}</h2>
     <p>Mis en ligne le {{ faceSnap.createdAt.toLocaleDateString() }}</p>
     <p>{{ faceSnap.description }}</p>
     <div class="card-actions justify-end">
-      <button class="btn btn-primary" (click)="onSnap()">
+      <button
+        class="btn btn-primary"
+        [ngClass]="{ 'btn-accent': userHasSnapped }"
+        (click)="onSnap()"
+      >
         {{ snapButtonText }}
       </button>
       {{ faceSnap.snaps }}
