@@ -7,7 +7,6 @@ import { FaceSnap } from './models/face-snap';
   standalone: true,
   imports: [FaceSnapComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
   mySnap!: FaceSnap;
@@ -36,5 +35,7 @@ export class AppComponent implements OnInit {
       new Date(),
       10
     );
+
+    this.myOtherSnap.setLocation("Dans les profondeurs de l'océan");
   }
 }

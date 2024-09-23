@@ -1,10 +1,19 @@
-<div class="face-snap-card">
-  <h2>{{ faceSnap.title }}</h2>
-  <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title" />
-  <p>Mis en ligne le {{ faceSnap.createdAt }}</p>
-  <p>{{ faceSnap.description }}</p>
-  <p>
-    <button (click)="onSnap()">{{ snapButtonText }}</button>
-    {{ faceSnap.snaps }}
-  </p>
+<div class="card bg-base-100 w-96 shadow-xl">
+  <figure>
+    <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title" />
+  </figure>
+  @if(faceSnap.location) {
+  <figcaption>Localisation: {{ faceSnap.location }}</figcaption>
+  }
+  <div class="card-body">
+    <h2 class="card-title">{{ faceSnap.title }}</h2>
+    <p>Mis en ligne le {{ faceSnap.createdAt.toLocaleDateString() }}</p>
+    <p>{{ faceSnap.description }}</p>
+    <div class="card-actions justify-end">
+      <button class="btn btn-primary" (click)="onSnap()">
+        {{ snapButtonText }}
+      </button>
+      {{ faceSnap.snaps }}
+    </div>
+  </div>
 </div>
