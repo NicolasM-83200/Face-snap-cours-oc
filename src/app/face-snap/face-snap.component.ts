@@ -7,6 +7,7 @@ import {
   PercentPipe,
   UpperCasePipe,
 } from '@angular/common';
+import { FaceSnapsService } from '../services/face-snaps.service';
 
 @Component({
   selector: 'app-face-snap',
@@ -20,6 +21,8 @@ export class FaceSnapComponent implements OnInit {
   snapButtonText!: string;
   userHasSnapped!: boolean;
 
+  constructor(private faceSnapService: FaceSnapsService) {}
+
   ngOnInit(): void {
     this.snapButtonText = 'Oh Snap!';
     this.userHasSnapped = false;
@@ -29,12 +32,12 @@ export class FaceSnapComponent implements OnInit {
     this.userHasSnapped ? this.unSnap() : this.snap();
   }
   unSnap() {
-    this.faceSnap.removeSnap();
+    this.faceSnapService.snapFaceSnapById(this.faceSnap.id, 'unsnap');
     this.snapButtonText = 'Oh Snap!';
     this.userHasSnapped = false;
   }
   snap() {
-    this.faceSnap.addSnap();
+    this.faceSnapService.snapFaceSnapById(this.faceSnap.id, 'snap');
     this.snapButtonText = 'Oups, unSnap!';
     this.userHasSnapped = true;
   }
