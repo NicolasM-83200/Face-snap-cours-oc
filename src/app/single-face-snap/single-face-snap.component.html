@@ -1,0 +1,39 @@
+<div class="grid h-full w-full">
+  <div
+    class="card bg-base-100 w-96 shadow-xl place-self-center mt-6"
+    [ngClass]="{ snapped: userHasSnapped }"
+  >
+    <figure class="relative pt-4 px-4">
+      <img
+        class="rounded-xl h-72 object-cover"
+        [src]="faceSnap.imageUrl"
+        [alt]="faceSnap.title"
+      />
+      @if(faceSnap.location) {
+      <figcaption
+        class="absolute left-4 bottom-1 text-base-300 px-2 rounded-xl backdrop-blur-sm"
+      >
+        Localisation: {{ faceSnap.location }}
+      </figcaption>
+      }
+    </figure>
+    <div class="card-body">
+      <h2 class="card-title">{{ faceSnap.title | uppercase }}</h2>
+      <p>Mis en ligne le {{ faceSnap.createdAt | date : "longDate" }}</p>
+      <p>{{ faceSnap.description }}</p>
+      <p>Ratio Amour/Haine: {{ faceSnap.ratio | percent : "1.0-2" }}</p>
+      <p>Prix: {{ faceSnap.price | currency : "EUR" }}</p>
+      <div class="card-actions justify-end">
+        <a class="btn btn-ghost" routerLink="/facesnaps">BACK</a>
+        <button
+          class="btn btn-primary"
+          [ngClass]="{ 'btn-accent': userHasSnapped }"
+          (click)="onSnap()"
+        >
+          {{ snapButtonText }}
+        </button>
+        {{ faceSnap.snaps }}
+      </div>
+    </div>
+  </div>
+</div>
